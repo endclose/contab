@@ -1,0 +1,12 @@
+<?php
+
+AREA RESTRINGIDA
+
+
+
+
+
+
+
+
+?>
