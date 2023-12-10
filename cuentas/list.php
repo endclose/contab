@@ -59,7 +59,7 @@ $view=GETPOST("view");
 
 $sortfield = GETPOST('sortfield', 'alpha');
 $sortorder = GETPOST('sortorder', 'alpha');
-$page = GETPOST('page', 'int');
+$page = intval(GETPOST('page', 'int'));
 $userid=GETPOST('userid','int');
 $begin=GETPOST('begin');
 
@@ -68,7 +68,7 @@ $cancel_filter=GETPOST('cancel_filter');
 if (! $sortorder) $sortorder="ASC";
 if (! $sortfield) $sortfield="c.codigo";  //campo de ordenacion por default
 if ($page < 0) { $page = 0; }
-$limit = $conf->liste_limit;
+$limit = intval($conf->liste_limit);
 $offset = $limit * $page;
 
 $pageprev = $page - 1;

@@ -21,13 +21,13 @@
  *		\brief      
  */
 
-require '../../main.inc.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/polizas/class/polizas.class.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/class/contab.class.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/cuentas/class/cuentas.class.php';
-require_once DOL_DOCUMENT_ROOT.'/nxus/core/lib/nxos.excel.lib.php';
+require '../../../main.inc.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/polizas/class/polizas.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/class/contab.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/cuentas/class/cuentas.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/nxus/core/lib/nxos.excel.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
-require_once DOL_DOCUMENT_ROOT.'/nxus/core/lib/nxos.lib.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/nxus/core/lib/nxos.lib.php';
 
 $action = GETPOST('action','alpha');
 $confirm = GETPOST('confirm','alpha');

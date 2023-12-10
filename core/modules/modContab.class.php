@@ -35,7 +35,7 @@ class modContab extends DolibarrModules
 
         $this->const_name = 'MAIN_MODULE_' . strtoupper($this->name);
 
-        $this->picto = 'accountancy';
+        $this->picto = 'contabilidad@custom/contab';
 
         $this->module_parts = array(
             // Set this to 1 if module has its own trigger directory (core/triggers)
@@ -45,7 +45,7 @@ class modContab extends DolibarrModules
             // Set this to 1 if module has its own substitution function file (core/substitutions)
             'substitutions' => 0,
             // Set this to 1 if module has its own menus handler directory (core/menus)
-            'menus' => 0,
+            'menus' => 1,
             // Set this to 1 if module overwrite template dir (core/tpl)
             'tpl' => 0,
             // Set this to 1 if module has its own barcode directory (core/modules/barcode)
@@ -58,7 +58,7 @@ class modContab extends DolibarrModules
             'theme' => 0,
             // Set this to relative path of css file if module has its own css file
             'css' => array(
-                //    '/timbradomexico/css/timbradomexico.css.php',
+                   '/custom/contab/css/contab.css',
             ),
             // Set this to relative path of js file if module must load a js on all pages
             'js' => array(
@@ -98,11 +98,11 @@ class modContab extends DolibarrModules
 
         $this->menu = array();
 
-        $this->menu[1] = array(
+        $this->menu[0] = array(
             'fk_menu' => '', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
             'type' => 'top', // This is a Top menu entry
             'titre' => 'Contabilidad', // Menu title
-            'prefix' => img_picto('', $this->picto, 'class="paddingright pictofixedwidth valignmiddle"'),
+            'prefix' => img_picto('', 'fa-search-dollar', 'class="paddingright pictofixedwidth valignmiddle"'),
             'mainmenu' => 'contab',
             'leftmenu' => '',
             'url' => 'custom/contab/index.php',
@@ -114,7 +114,7 @@ class modContab extends DolibarrModules
             'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
 
         );
-        $this->menu[2] = array(
+        $this->menu[1] = array(
             'fk_menu' => 'fk_mainmenu=contab', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
             'type' => 'left', // This is a Left menu entry
             'titre' => 'Cuentas Contables', // Menu title

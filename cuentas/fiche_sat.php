@@ -23,9 +23,9 @@
  */
  
 
-require '../../main.inc.php';  //cargar el modulo principal
-require_once DOL_DOCUMENT_ROOT.'/contab/cuentas/class/cuentas.class.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/lib/cuentas.lib.php';
+require '../../../main.inc.php';  //cargar el modulo principal
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/cuentas/class/cuentas.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/lib/cuentas.lib.php';
 
 
 // Security check
@@ -74,7 +74,7 @@ print '<tr><td width="20%" class="fielrequired">'.$langs->trans('Naturaleza').'<
 //Ubicacion
 print '<tr><td align="center" bgcolor="#642EFE" style="color:white;" style="font-style:bold">'.'Ubicación'.'&nbsp;</td></tr>';
 print '<tr><td width="20%" class="fielrequired">Pertenece a</td><td>';
-print '<a href="'.DOL_URL_ROOT.'/contab/cuentas/fiche.php?id='.$object->idpadre.'">'.$object->codpadre."-".$object->nompadre;
+print '<a href="'.DOL_URL_ROOT.'/custom/contab/cuentas/fiche.php?id='.$object->idpadre.'">'.$object->codpadre."-".$object->nompadre;
 print '</td></tr>';
 print '<tr><td width="20%" class="fielrequired">Afectable</td><td>'.(($object->Afectable==1)?"Si":"No").'</td></tr>';
 print '<tr><td width="20%" class="fielrequired">Nivel de la cuenta</td><td>'.$object->nivel.'</td></tr>';

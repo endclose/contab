@@ -25,9 +25,9 @@ require '../../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/custom/contab/polizas/class/polizas.class.php';
 require_once DOL_DOCUMENT_ROOT.'/custom/contab/class/contab.class.php';
 require_once DOL_DOCUMENT_ROOT.'/custom/contab/cuentas/class/cuentas.class.php';
-require_once DOL_DOCUMENT_ROOT.'/custom/contab/nxus/core/lib/nxos.excel.lib.php';
+require_once DOL_DOCUMENT_ROOT.'/nxus/core/lib/nxos.excel.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
-require_once DOL_DOCUMENT_ROOT.'/custom/contab/nxus/core/lib/nxos.lib.php';
+require_once DOL_DOCUMENT_ROOT.'/nxus/core/lib/nxos.lib.php';
 
 $contab = new Contabilidad($db);
 
@@ -269,7 +269,7 @@ if ($result)
 
         $var=!$var;
 
-		$movs = getNxusMov($obj->rowid,'IdCuenta','contab_polizas_movs',array('Ejercicio'),array($conf->global->FISCAL_YEAR),'/custom/contab/polizas/listmov.php','search_codigo',$obj->codigo);
+		$movs = getNxusMov($obj->rowid,'IdCuenta','contab_polizas_movs',array('Ejercicio'),array($conf->global->FISCAL_YEAR),'/contab/polizas/listmov.php','search_codigo',$obj->codigo);
 	if ($movs) {
         print "<tr $bc[$var]>";
 		

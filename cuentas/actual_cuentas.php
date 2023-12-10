@@ -22,8 +22,8 @@
  *	\brief      Payment reports page
  */
 
-require '../../main.inc.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/cuentas/class/cuentas.class.php';
+require '../../../main.inc.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/cuentas/class/cuentas.class.php';
 //require_once DOL_DOCUMENT_ROOT.'/core/modules/rapport/pdf_paiement.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
@@ -66,7 +66,7 @@ llxHeader();
 
 //$titre=($year?$langs->trans("PaymentsReportsForYear",$year):$langs->trans("PaymentsReports"));   
 $titre=($langs->trans("Actualizar cuentas contables con cuentas de Contpaq"));
-print_fiche_titre($titre);
+print load_fiche_titre($titre);
 
 print 'IMPORTANTE:';print '<br>';
 print "- Este proceso puede tardar varios minutos";print '<br>';

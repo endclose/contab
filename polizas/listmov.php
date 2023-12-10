@@ -58,7 +58,7 @@ $view=GETPOST("view");
 
 $sortfield = GETPOST('sortfield', 'alpha');
 $sortorder = GETPOST('sortorder', 'alpha');
-$page = GETPOST('page', 'int');
+$page = intval(GETPOST('page', 'int'));
 $userid=GETPOST('userid','int');
 $begin=GETPOST('begin');
 

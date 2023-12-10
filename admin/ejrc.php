@@ -23,7 +23,7 @@
  *       \brief      Page to setup PDF options
  */
 
-require '../../main.inc.php';
+require '../../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formadmin.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/usergroups.lib.php';
@@ -31,12 +31,12 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/pdf.lib.php';
 
-require_once DOL_DOCUMENT_ROOT.'/contab/polizas/class/polizas.class.php';
-require DOL_DOCUMENT_ROOT.'/contab/class/contab.class.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/class/commoncontab.class.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/lib/contab.lib.php';
-require_once DOL_DOCUMENT_ROOT.'/contab/cuentas/class/cuentas.class.php';
-require_once DOL_DOCUMENT_ROOT.'/nxus/core/lib/nxos.lib.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/polizas/class/polizas.class.php';
+require DOL_DOCUMENT_ROOT.'/custom/contab/class/contab.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/class/commoncontab.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/lib/contab.lib.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/cuentas/class/cuentas.class.php';
+require_once DOL_DOCUMENT_ROOT.'/custom/contab/nxus/core/lib/nxos.lib.php';
 
 $langs->load("admin");
 $langs->load("languages");
