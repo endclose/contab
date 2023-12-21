@@ -35,7 +35,7 @@ class modContab extends DolibarrModules
 
         $this->const_name = 'MAIN_MODULE_' . strtoupper($this->name);
 
-        $this->picto = 'contabilidad@custom/contab';
+        $this->picto = 'contabilidad@contab';
 
         $this->module_parts = array(
             // Set this to 1 if module has its own trigger directory (core/triggers)
@@ -58,7 +58,7 @@ class modContab extends DolibarrModules
             'theme' => 0,
             // Set this to relative path of css file if module has its own css file
             'css' => array(
-                   '/custom/contab/css/contab.css',
+                //    '/custom/contab/css/contab.css',
             ),
             // Set this to relative path of js file if module must load a js on all pages
             'js' => array(
@@ -130,6 +130,9 @@ class modContab extends DolibarrModules
             'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
 
         );
+
+        $this->config_page_url = array("setup.php@contab");
+
     }
 
     public function init($options = '')
