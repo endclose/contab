@@ -444,10 +444,10 @@ function selectNivelCta($selected=1,$htmlname='idnivelcta',$disabled=0) {
 	//$names:array: nombre de los campos opcionales del control select
 function print_label($etiquetas,$campos,$titgpo,$ren)
 {
-	print '<tr><td align="center" bgcolor="#3B5998" style="color:white;" style="font-style:bold"><h6>'.$titgpo.'&nbsp;</h6></td></tr>';
+	print '<tr><td align="center" colspan="2" bgcolor="#3B5998" style="color:white;" style="font-style:bold">'.$titgpo.'</td></tr>';
 	for ($i = 0; $i < $ren; $i++) {
-		print '<tr><td width="20%" class="ex1">'.$etiquetas[$i].'</td>';
-		print '<td class="fielrequired" colspan="3">'.$campos[$i].'</td></tr>';
+		print '<tr><td class="titlefield">'.$etiquetas[$i].'</td>';
+		print '<td class="valuefield">'.$campos[$i].'</td></tr>';
 	}	
 	
 }
