@@ -129,10 +129,10 @@ $idsel_del = urlencode($idsel_del);
 $sql = "SELECT c.rowid, c.codigo, c.nombre, c.saldo, tc.label as tipocta, nc.abrev as nivelcta, c.nat, c.FechaRegistro, c.afectable";
 $sql.= ", sc.codigo as codpadre, sc.nombre as nompadre";
 $sql.= " FROM ".MAIN_DB_PREFIX."contab_cuentas as c";
-$sql.= " LEFT JOIN ".MAIN_DB_PREFIX."contab_tiposcta as tc ON tc.rowid = c.fk_tipocta";
-$sql.= " LEFT JOIN ".MAIN_DB_PREFIX."contab_nivelcta as nc ON nc.rowid = c.fk_nivel";
-$sql.= " LEFT JOIN ".MAIN_DB_PREFIX."contab_ctanxus as cn ON cn.fk_hijo = c.rowid";
-$sql.= " LEFT JOIN ".MAIN_DB_PREFIX."contab_cuentas as sc ON sc.rowid = cn.fk_padre";
+$sql.= " INNER JOIN ".MAIN_DB_PREFIX."contab_tiposcta as tc ON tc.rowid = c.fk_tipocta";
+$sql.= " INNER JOIN ".MAIN_DB_PREFIX."contab_nivelcta as nc ON nc.rowid = c.fk_nivel";
+$sql.= " INNER JOIN ".MAIN_DB_PREFIX."contab_ctanxus as cn ON cn.fk_hijo = c.rowid";
+$sql.= " INNER JOIN ".MAIN_DB_PREFIX."contab_cuentas as sc ON sc.rowid = cn.fk_padre";
 $sql.= " WHERE c.rowid IS NOT NULL";
 
 if ($search_codigo) $sql .= " AND c.codigo LIKE '%".$db->escape($search_codigo)."%'";
