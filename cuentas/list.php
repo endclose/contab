@@ -345,7 +345,7 @@ if ($result)
 		print '<td align="center">'.($obj->afectable==1?"Si":"No").'</td>';	
 		print '<td align="center" nowrap="nowrap">'.$obj->FechaRegistro."</td>";
         print '<td align="left" nowrap="nowrap">'.dol_trunc($obj->codpadre." ".$obj->nompadre,36)."</td>";
-		$movs = getNxusMov($obj->rowid,'IdCuenta','contab_polizas_movs',array('Ejercicio'),array($conf->global->FISCAL_YEAR),'/contab/polizas/listmov.php','search_codigo',$obj->codigo);
+		// $movs = getNxusMov($obj->rowid,'IdCuenta','contab_polizas_movs',array('Ejercicio'),array($conf->global->FISCAL_YEAR),'/contab/polizas/listmov.php','search_codigo',$obj->codigo);
 		if ($movs) print '<td align="center">'.$movs.'</td>';
 		else print '<td>&nbsp;</td>';
         print "</tr>\n";
