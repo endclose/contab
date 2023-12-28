@@ -98,7 +98,7 @@ class modContab extends DolibarrModules
 
         $this->menu = array();
 
-        $this->menu[0] = array(
+        $this->menu[] = array(
             'fk_menu' => '', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
             'type' => 'top', // This is a Top menu entry
             'titre' => 'Contabilidad', // Menu title
@@ -114,7 +114,7 @@ class modContab extends DolibarrModules
             'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
 
         );
-        $this->menu[1] = array(
+        $this->menu[] = array(
             'fk_menu' => 'fk_mainmenu=contab', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
             'type' => 'left', // This is a Left menu entry
             'titre' => 'Cuentas Contables', // Menu title
@@ -123,13 +123,120 @@ class modContab extends DolibarrModules
             'leftmenu' => 'cuentas',
             'url' => 'custom/contab/index.php',
             'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
-            'position' => 1000 + 1,
+            'position' => 1001,
             'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
             'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
             'target' => '',
             'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
 
         );
+        $this->menu[] = array(
+            'fk_menu' => 'fk_mainmenu=contab,fk_leftmenu=cuentas', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'List', // Menu title
+            'mainmenu' => 'contab',
+            'leftmenu' => 'contab_cuentas_list',
+            'url' => '/custom/contab/cuentas/list.php?type=0',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1002,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+
+        );
+        $this->menu[]= array(
+            'fk_menu' => 'fk_mainmenu=contab,fk_leftmenu=cuentas', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'Agregar cuenta', // Menu title
+            'mainmenu' => 'contab',
+            'leftmenu' => 'contab_cuentas_new',
+            'url' => '/custom/contab/cuentas/card.php?mode=2',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1003,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+
+        );
+        $this->menu[]= array(
+            'fk_menu' => 'fk_mainmenu=contab,fk_leftmenu=cuentas', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'Auxiliar de cuentas', // Menu title
+            'mainmenu' => 'contab',
+            'leftmenu' => 'contab_cuentas_aux',
+            'url' => '/custom/contab/cuentas/listaux.php?mode=3',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1004,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+
+        );
+
+        $this->menu[] = array(
+            'fk_menu' => 'fk_mainmenu=contab', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'Polizas', // Menu title
+            'prefix' => img_picto('', 'fa-file-invoice-dollar', 'class="paddingright pictofixedwidth valignmiddle infobox-commande"'),
+            'mainmenu' => 'contab',
+            'leftmenu' => 'polizas',
+            'url' => '/custom/contab/polizas/index.php',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1005,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+        );
+
+        $this->menu[] = array(
+            'fk_menu' => 'fk_mainmenu=contab,fk_leftmenu=polizas', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'List', // Menu title
+            'mainmenu' => 'contab',
+            'leftmenu' => 'contab_polizas_list',
+            'url' => '/custom/contab/polizas/list.php?type=0',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1006,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+        );
+
+        $this->menu[] = array(
+            'fk_menu' => 'fk_mainmenu=contab,fk_leftmenu=polizas', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'Agregar poliza', // Menu title
+            'mainmenu' => 'contab',
+            'leftmenu' => 'contab_polizas_new',
+            'url' => '/custom/contab/polizas/card.php?mode=2',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1007,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+        );
+
+        $this->menu[]= array(
+            'fk_menu' => 'fk_mainmenu=contab,fk_leftmenu=polizas', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+            'type' => 'left', // This is a Left menu entry
+            'titre' => 'Movimientos', // Menu title
+            'mainmenu' => 'contab',
+            'leftmenu' => 'contab_polizas_mov',
+            'url' => '/custom/contab/polizas/listmov.php?type=0',
+            'langs' => 'contab@contab', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+            'position' => 1008,
+            'enabled' => 'isModEnabled("contab")', // Define condition to show or hide menu entry. Use 'isModEnabled("contab")' if entry must be visible if module is enabled.
+            'perms' => '1', // Use 'perms'=>'$user->hasRight("contab", "myobject", "read")' if you want your menu with a permission rules
+            'target' => '',
+            'user' => 0, // 0=Menu for internal users, 1=external users, 2=both
+        );
+
 
         $this->config_page_url = array("setup.php@contab");
 

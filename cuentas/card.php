@@ -28,8 +28,8 @@ require_once DOL_DOCUMENT_ROOT . '/custom/contab/class/contab.class.php';
 
 $contab = new Contabilidad($db);
 
-$mode		= (GETPOST('mode', 'int') ? GETPOST('mode', 'int') : '1');
-$id			= GETPOST('id', 'int');
+$mode = (GETPOST('mode', 'int') ? GETPOST('mode', 'int') : '1');
+$id = GETPOST('id', 'int');
 $action = GETPOST('action', 'alpha');
 
 $object = new Cuentas($db);

@@ -39,7 +39,7 @@ function cuenta_prepare_head($object)
 	$h = 0;
 	$head = array();
 
-	$head[$h][0] = DOL_URL_ROOT."/contab/cuentas/fiche.php?id=".$object->id;
+	$head[$h][0] = DOL_URL_ROOT."/custom/contab/cuentas/card.php?mode=1&id=".$object->id;
 	$head[$h][1] = $langs->trans("Card");
 	$head[$h][2] = 'card';
 	$h++;

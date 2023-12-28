@@ -69,11 +69,11 @@ if ((isset($_GET["type"]) && $_GET["type"] == 1) || empty($conf->product->enable
 
 llxHeader("", $langs->trans("Contabilidad"), $helpurl);
 
-print load_fiche_titre($transAreaType);
+print load_fiche_titre($transAreaType, '', 'contab@contab');
 
-print '<table border="0" width="100%" class="notopnoleftnoright">';
+print '<div class="fichecenter">';
 
-print '<tr><td valign="top" width="30%" class="notopnoleft">';
+print '<div class="fichethirdleft">';
 
 /*
  * Zone recherche produit/service
@@ -82,88 +82,22 @@ $rowspan = 2;
 if (!empty($conf->barcode->enabled)) $rowspan++;
 print '<form method="post" action="' . DOL_URL_ROOT . '/custom/contab/cuentas/list.php">';
 print '<input type="hidden" name="token" value="' . $_SESSION['newtoken'] . '">';
-print '<table class="noborder nohover" width="100%">';
-print "<tr class=\"liste_titre\">";
-print '<td colspan="3">' . $langs->trans("Search") . '</td></tr>';
-print "<tr " . $bc[false] . "><td>";
-print $langs->trans("Codigo") . ':</td><td><input class="flat" type="text" size="14" name="search_codigo"></td>';
-print '<td rowspan="' . $rowspan . '"><input type="submit" class="button" value="' . $langs->trans("Search") . '"></td></tr>';
-print "<tr " . $bc[false] . "><td>";
-print $langs->trans("Nombre cuenta") . ':</td><td><input class="flat" type="text" size="14" name="search_nombre"></td>';
-//print '<td><input type="submit" class="button" value="'.$langs->trans("Search").'"></td>';
-print '</tr>';
-//print "<tr ".$bc[false]."><td>";
-//print $langs->trans("Other").':</td><td><input class="flat" type="text" size="14" name="sall"></td>';
-//print '<td><input type="submit" class="button" value="'.$langs->trans("Search").'"></td>';
-print '</tr>';
-
-print "</table></form><br>";
+print '<table class="noborder nohover centpercent">';
+print '<tr class="liste_titre">';
+print '<td colspan="2">' . $langs->trans("Search") . '</td></tr>';
+print '<tr><td>';
+print $langs->trans("Codigo") . ':</td><td><input class="flat" type="text" size="14" name="search_codigo"></td></tr>';
+print "<tr><td>";
+print $langs->trans("Nombre cuenta") . ':</td><td><input class="flat" type="text" size="14" name="search_nombre"></td></tr>';
+print '<tr><td class="center" colspan="2"><input type="submit" class="button" value="' . $langs->trans("Search") . '"></td></tr>';
 
 
-/*
- * Nombre de produits et/ou services
- */
-/*
-$prodser = array();
-$prodser[0][0]=$prodser[0][1]=$prodser[1][0]=$prodser[1][1]=0;
+print "</table></form>";
 
-$sql = "SELECT COUNT(p.rowid) as total, p.fk_product_type, p.tosell, p.tobuy";
-$sql.= " FROM ".MAIN_DB_PREFIX."product as p";
-$sql.= ' WHERE p.entity IN ('.getEntity($product_static->element, 1).')';
-$sql.= " GROUP BY p.fk_product_type, p.tosell, p.tobuy";
-$result = $db->query($sql);
-while ($objp = $db->fetch_object($result))
-{
-	$status=1;
-	if (! $objp->tosell && ! $objp->tobuy) $status=0;
-	$prodser[$objp->fk_product_type][$status]=$objp->total;
-}
-*/
+print '</div>';
 
-print '<table class="noborder" width="100%">';
-/*
-print '<tr class="liste_titre"><td colspan="2">'.$langs->trans("Statistics").'</td></tr>';
-if (! empty($conf->product->enabled))
-{
-	$statProducts = "<tr $bc[0]>";
-	$statProducts.= '<td><a href="liste.php?type=0&amp;tosell=0&amp;tobuy=0">'.$langs->trans("ProductsNotOnSell").'</a></td><td align="right">'.round($prodser[0][0]).'</td>';
-	$statProducts.= "</tr>";
-	$statProducts.= "<tr $bc[1]>";
-	$statProducts.= '<td><a href="liste.php?type=0&amp;tosell=1">'.$langs->trans("ProductsOnSell").'</a></td><td align="right">'.round($prodser[0][1]).'</td>';
-	$statProducts.= "</tr>";
-}
-if (! empty($conf->service->enabled))
-{
-	$statServices = "<tr $bc[0]>";
-	$statServices.= '<td><a href="liste.php?type=1&amp;tosell=0&amp;tobuy=0">'.$langs->trans("ServicesNotOnSell").'</a></td><td align="right">'.round($prodser[1][0]).'</td>';
-	$statServices.= "</tr>";
-	$statServices.= "<tr $bc[1]>";
-	$statServices.= '<td><a href="liste.php?type=1&amp;tosell=1">'.$langs->trans("ServicesOnSell").'</a></td><td align="right">'.round($prodser[1][1]).'</td>';
-	$statServices.= "</tr>";
-}
-$total=0;
-if ($type == '0')
-{
-	print $statProducts;
-	$total=round($prodser[0][0])+round($prodser[0][1]);
-}
-else if ($type == '1')
-{
-	print $statServices;
-	$total=round($prodser[1][0])+round($prodser[1][1]);
-}
-else
-{
-	print $statProducts.$statServices;
-	$total=round($prodser[1][0])+round($prodser[1][1])+round($prodser[0][0])+round($prodser[0][1]);
-}
-print '<tr class="liste_total"><td>'.$langs->trans("Total").'</td><td align="right">';
-print $total;
-print '</td></tr>';
-*/
-print '</table>';
-
-print '</td><td valign="top" width="70%" class="notopnoleftnoright">';
+print '<div class="fichetwothirdright">';
+print '<div class="div-table-responsive-no-min">';
 
 
 $max = 15;
@@ -183,7 +117,7 @@ if ($result) {
 	if ($num > 0) {
 		$transRecordedType = $langs->trans("Las 15 últimas cuentas contables registradas", $max);
 
-		print '<table class="noborder" width="100%">';
+		print '<table class="noborder centpercent">';
 
 		$colnb = 5;
 
@@ -227,8 +161,8 @@ if ($result) {
 } else {
 	dol_print_error($db);
 }
-
-print '</td></tr></table>';
+print '</div></div>';
+print '</div>';
 
 llxFooter();
 
